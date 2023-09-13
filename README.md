@@ -51,3 +51,7 @@ YAML 数据类型
 1. 纯量：单个的，不可再分的值
 2. 数组
 3. 对象
+
+## Selenium
+![流程图](./images/selenium1.png)
+![流程图](./images/selenium2.png)
