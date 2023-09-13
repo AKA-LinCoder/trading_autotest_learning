@@ -38,10 +38,10 @@ class DriverConfig:
 
         driver = webdriver.Chrome(
 
-            # ChromeDriverManager().install(),
+            ChromeDriverManager().install(),
             # ChromeDriverManager(url="http://npm.taobao.org/mirrors/chromedriver",
             #                     latest_release_url="http://npm.taobao.org/mirrors/chromedriver/LATEST_RELEASE").install(),
-            executable_path=get_project_path() + sep(["driver_files", "chromedriver"], add_sep_before=True),
+            # executable_path=get_project_path() + sep(["driver_files", "chromedriver"], add_sep_before=True),
             # executable_path="/Users/estim/Downloads/chromedriver_mac_arm64/chromedriver",
 
             options=options
