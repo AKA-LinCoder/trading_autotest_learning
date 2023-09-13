@@ -4,6 +4,8 @@ from selenium import webdriver
 
 from common.tools import get_project_path, sep
 
+from webdriver_manager.chrome import ChromeDriverManager
+
 
 class DriverConfig:
     @staticmethod
@@ -33,8 +35,10 @@ class DriverConfig:
         )
 
         # 实例化浏览器驱动
+
         driver = webdriver.Chrome(
 
+            # ChromeDriverManager().install(),
             # ChromeDriverManager(url="http://npm.taobao.org/mirrors/chromedriver",
             #                     latest_release_url="http://npm.taobao.org/mirrors/chromedriver/LATEST_RELEASE").install(),
             executable_path=get_project_path() + sep(["driver_files", "chromedriver"], add_sep_before=True),
@@ -42,6 +46,12 @@ class DriverConfig:
 
             options=options
         )
+
+        # driver = webdriver.Chrome(ChromeDriverManager(url="https://registry.npmmirror.com/-/binary/chromedriver",
+        #                                               latest_release_url="https://registry.npmmirror.com/-/binary/chromedriver/LATEST_RELEASE",
+        #                                               ).install(),
+        #                           options=options)
+        # driver = webdriver.Chrome(ChromeDriverManager().install(), options=options)
         # 删除所有cookies
         driver.delete_all_cookies()
         # 隐性等待时间

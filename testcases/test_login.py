@@ -43,9 +43,9 @@ from config.driver_config import DriverConfig
 from page.LoginPage import LoginPage
 
 
+# 必须在setting中找到 Python Integrated Tool 中 的 Default test runner 选择为pytest,否则不会按照测试用例执行
+# pyChame很智能，如果class里面有两个用例,鼠标右键时在哪个用例就执行哪个用例，放外面就会都执行
 class TestLogin:
-    # 必须在setting中找到 Python Integrated Tool 中 的 Default test runner 选择为pytest,否则不会按照测试用例执行
-    # pyChame很智能，如果class里面有两个用例,鼠标右键时在哪个用例就执行哪个用例，放外面就会都执行
     def test_login(self):
         driver = DriverConfig().driver_config()
         # # driver.get(url="http://www.okoknxx.cn")

@@ -60,3 +60,5 @@ YAML 数据类型
 
 下载对应浏览器的Chromedriver
 进入路径 执行chmod +x chromedriver 
+
+webdrivermanager 自动下载更新webdriver
