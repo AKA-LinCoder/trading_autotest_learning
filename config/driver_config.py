@@ -2,6 +2,8 @@ from webdriver_manager.chrome import ChromeDriverManager
 
 from selenium import webdriver
 
+from common.tools import get_project_path, sep
+
 
 class DriverConfig:
     @staticmethod
@@ -18,7 +20,7 @@ class DriverConfig:
         # options.add_argument('--headless')
         # 解决卡顿
         options.add_argument("--disable-gpu")
-        options.add_argument("--no-sanbox")
+        options.add_argument("--no-sandbox")
         options.add_argument('--disable-dev-shm-usage')
         # 解决selenium无法访问https的问题
         options.add_argument("--ignore-certificate-errors")
@@ -35,7 +37,7 @@ class DriverConfig:
 
             # ChromeDriverManager(url="http://npm.taobao.org/mirrors/chromedriver",
             #                     latest_release_url="http://npm.taobao.org/mirrors/chromedriver/LATEST_RELEASE").install(),
-            executable_path="/usr/local/bin/chromedriver",
+            executable_path=get_project_path() + sep(["driver_files", "chromedriver"], add_sep_before=True),
             # executable_path="/Users/estim/Downloads/chromedriver_mac_arm64/chromedriver",
 
             options=options
@@ -44,8 +46,6 @@ class DriverConfig:
         driver.delete_all_cookies()
         # 隐性等待时间
         driver.implicitly_wait(10)
-        # 删除所有cookies
-        driver.delete_all_cookies()
         return driver
 
 

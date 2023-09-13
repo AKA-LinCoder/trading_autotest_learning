@@ -55,3 +55,8 @@ YAML 数据类型
 ## Selenium
 ![流程图](./images/selenium1.png)
 ![流程图](./images/selenium2.png)
+
+## 封装浏览器驱动  
+
+下载对应浏览器的Chromedriver
+进入路径 执行chmod +x chromedriver 
