@@ -40,6 +40,8 @@ class DriverConfig:
 
             options=options
         )
+        # 删除所有cookies
+        driver.delete_all_cookies()
         # 隐性等待时间
         driver.implicitly_wait(10)
         # 删除所有cookies

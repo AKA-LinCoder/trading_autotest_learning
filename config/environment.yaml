@@ -1,0 +1,12 @@
+user:
+  jay:
+    username: 周杰伦
+    password: 123456
+  william:
+    username: william
+    password: 123456
+  failure:
+    username: william
+    password: william
+
+url: http://192.168.2.195
