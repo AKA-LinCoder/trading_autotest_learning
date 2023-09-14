@@ -62,3 +62,13 @@ YAML 数据类型
 进入路径 执行chmod +x chromedriver 
 
 webdrivermanager 自动下载更新webdriver
+
+## 元素定位方法
+- CSS
+- XPATH
+
+//查找标签h1中class包含123的
+//h1[contains(@class,'123')]
+
+//查找标签h1中的值中包含123的
+//h1[contains(text(),'123')]
