@@ -29,4 +29,5 @@ class HomeBase:
 
         :return:
         """
+        return "//span[text(),'我的地址']/ancestor::div[@class='first_card']/div[contains(@class,'avatar)]//img "
         return  "//span[contains(text(),'欢迎您回来')]/parent::div/preceding-sibling::div//img"
