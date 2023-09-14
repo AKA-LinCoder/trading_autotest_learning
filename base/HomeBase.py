@@ -15,3 +15,11 @@ class HomeBase:
 
     def welcome(self):
         return "//span[starts-with(text(),'欢迎您回来')]"
+
+
+    def show_date(self):
+        """
+        following-sibling:寻找同级元素 下一个div
+        :return:
+        """
+        return "//div[text()='我的日历']/following-sibling::div"
