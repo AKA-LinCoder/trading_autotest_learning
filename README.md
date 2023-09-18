@@ -72,3 +72,17 @@ webdrivermanager 自动下载更新webdriver
 
 //查找标签h1中的值中包含123的
 //h1[contains(text(),'123')]
+
+## 前端主流框架
+
+- React
+- Vue
+- Angular
+
+获取元素的步骤
+
+- 元素需不需要可见
+- 元素如果可见，就返回元素定位；元素不可见，需要怎么操作
+- 如果一直定位不到元素，应该怎么办
+
+![流程图](./images/xPath1.png)
