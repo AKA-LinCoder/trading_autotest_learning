@@ -90,3 +90,6 @@ webdrivermanager 自动下载更新webdriver
 ### 页面什么时候才算加载完成
 在浏览器控制台 输出 document.readyState可以查看当前页面加载状态
 ![流程图](./images/loading1.jpg)
+
+### 等待页面元素消失
+![流程图](./images/loading2.jpg)
