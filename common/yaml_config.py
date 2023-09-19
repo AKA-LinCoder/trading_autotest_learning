@@ -13,7 +13,7 @@
 #     for i in file.readlines():
 #         print(i)
 import yaml
-from common.tools import get_project_path,sep
+from common.tools import get_project_path, sep
 
 
 class GetConf:
@@ -23,12 +23,12 @@ class GetConf:
             self.env = yaml.load(env_file, Loader=yaml.FullLoader)
             print(self.env)
 
-    def get_username_password(self):
-        return self.env["username"], self.env["password"]
+    def get_username_password(self, user):
+        return self.env["user"][user]["username"], self.env["user"][user]["password"]
 
     def get_url(self):
         return self.env["url"]
 
 
 if __name__ == '__main__':
-    GetConf()
+    print(GetConf().get_username_password("jay"))

@@ -48,13 +48,17 @@ from page.LoginPage import LoginPage
 class TestLogin:
     def test_login(self):
         driver = DriverConfig().driver_config()
+        LoginPage().login(driver,"jay")
+
+
+
         # # driver.get(url="http://www.okoknxx.cn")
-        driver.get(url="http://139.159.221.240")
-        sleep(3)
-        LoginPage().login_input_value(driver, "用户名", "周杰伦")
-        sleep(3)
-        LoginPage().login_input_value(driver, "密码", "123456")
-        sleep(3)
-        LoginPage().click_login(driver, "登录")
+        # driver.get(url="http://139.159.221.240")
+        # sleep(3)
+        # LoginPage().login_input_value(driver, "用户名", "周杰伦")
+        # sleep(3)
+        # LoginPage().login_input_value(driver, "密码", "123456")
+        # sleep(3)
+        # LoginPage().click_login(driver, "登录")
         sleep(3)
         driver.quit()
