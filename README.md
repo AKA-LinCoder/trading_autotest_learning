@@ -99,3 +99,6 @@ webdrivermanager 自动下载更新webdriver
 
 ### 跳转到指定网站
 ![流程图](./images/loading4.jpg)
+
+### 输入框填值逻辑
+![流程图](./images/loading5.jpg)
