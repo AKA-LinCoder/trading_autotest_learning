@@ -86,3 +86,7 @@ webdrivermanager 自动下载更新webdriver
 - 如果一直定位不到元素，应该怎么办
 
 ![流程图](./images/xPath1.png)
+
+### 页面什么时候才算加载完成
+在浏览器控制台 输出 document.readyState可以查看当前页面加载状态
+![流程图](./images/loading1.jpg)
