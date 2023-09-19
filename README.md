@@ -102,3 +102,6 @@ webdrivermanager 自动下载更新webdriver
 
 ### 输入框填值逻辑
 ![流程图](./images/loading5.jpg)
+
+### 元素点击逻辑
+![流程图](./images/loading6.jpg)

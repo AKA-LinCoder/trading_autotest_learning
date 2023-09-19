@@ -1,5 +1,6 @@
 import time
-from selenium.common.exceptions import ElementNotInteractableException, WebDriverException, NoSuchElementException,StaleElementReferenceException
+from selenium.common.exceptions import ElementNotInteractableException, WebDriverException, NoSuchElementException, \
+    StaleElementReferenceException
 from common.yaml_config import GetConf
 from selenium.webdriver.common.keys import Keys
 
@@ -146,7 +147,7 @@ class ObjectMap:
             # 发生NoSuchElementException,说明页面中没有找到该元素
             return False
 
-    def element_fill_value(self,driver,locate_type,locator_expression,fill_value,timeout=30):
+    def element_fill_value(self, driver, locate_type, locator_expression, fill_value, timeout=30):
         """
         元素填值
         :param driver: 浏览器驱动
@@ -200,7 +201,7 @@ class ObjectMap:
         except StaleElementReferenceException:
             self.wait_for_ready_state_complete(driver)
             time.sleep(0.06)
-            element = self.element_appear(driver,locate_type,locator_expression)
+            element = self.element_appear(driver, locate_type, locator_expression)
             element.clear()
             if not fill_value.endswith("\n"):
                 element.send_keys(fill_value)
@@ -213,4 +214,49 @@ class ObjectMap:
         except Exception:
             raise Exception("元素填值失败")
 
+        return True
+
+    def element_click(self, driver, locate_type, locator_expression, locate_type_disappear=None,
+                      locator_expression_disappear=None,
+                      locate_type_appear=None, locator_expression_appear=None, timeout=30):
+        """
+        元素点击
+        :param driver: 浏览器驱动
+        :param locate_type: 定位方式
+        :param locator_expression: 定位表达式
+        :param locate_type_disappear: 等待元素消失的定位方式
+        :param locator_expression_disappear: 等待元素消失的定位表达式
+        :param locate_type_appear: 等待元素出现的定位方式
+        :param locator_expression_appear: 等待元素出现的定位表达式
+        :param timeout: 超时时间
+        :return:
+        """
+        # 元素要可见
+        element = self.element_appear(driver, locate_type, locator_expression, timeout)
+        try:
+            # 元素点击
+            element.click()
+        except StaleElementReferenceException:
+            self.wait_for_ready_state_complete(driver)
+            time.sleep(0.06)
+            element = self.element_appear(driver, locate_type, locator_expression, timeout)
+            element.click()
+        except Exception as e:
+            print("页面出现异常元素不可点击" + e)
+            return False
+        try:
+            # 点击元素后，元素出现或消失
+            self.element_appear(
+                driver,
+                locate_type_appear,
+                locator_expression_appear
+            )
+            self.element_disappear(
+                driver,
+                locate_type_disappear,
+                locator_expression_disappear
+            )
+        except Exception as e:
+            print("等待元素出现或消失失败" + e)
+            return False
         return True
