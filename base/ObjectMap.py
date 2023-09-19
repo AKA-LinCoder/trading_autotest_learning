@@ -1,5 +1,5 @@
 import time
-from selenium.common.exceptions import ElementNotInteractableException, WebDriverException
+from selenium.common.exceptions import ElementNotInteractableException, WebDriverException, NoSuchElementException
 from common.yaml_config import GetConf
 
 
@@ -135,3 +135,12 @@ class ObjectMap:
             print("跳转地址出现异常,异常原因%s" % e)
             return False
         return True
+
+    # 元素是否显示
+    def element_is_display(self, driver, locate_type, locator_expression):
+        try:
+            driver.find_element(by=locate_type, value=locator_expression)
+            return True
+        except NoSuchElementException:
+            # 发生NoSuchElementException,说明页面中没有找到该元素
+            return False
