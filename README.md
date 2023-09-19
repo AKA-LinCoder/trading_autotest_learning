@@ -93,3 +93,6 @@ webdrivermanager 自动下载更新webdriver
 
 ### 等待页面元素消失
 ![流程图](./images/loading2.jpg)
+
+### 等待页面元素出现
+![流程图](./images/loading3.jpg)
