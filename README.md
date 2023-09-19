@@ -96,3 +96,6 @@ webdrivermanager 自动下载更新webdriver
 
 ### 等待页面元素出现
 ![流程图](./images/loading3.jpg)
+
+### 跳转到指定网站
+![流程图](./images/loading4.jpg)
