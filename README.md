@@ -107,3 +107,9 @@ webdrivermanager 自动下载更新webdriver
 ![流程图](./images/loading6.jpg)
 
 ### iframe必须先切进去，测试完需要切出来
+
+- 如果定位toast
+F12 打开源代码，点击出现弹窗 在源代码处按F8 就可以让toast暂停
+
+- 解决点击下拉框后无法定位里面元素
+ 定位到下拉框，右键->发生中断的条件->子树修改
