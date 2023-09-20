@@ -105,3 +105,5 @@ webdrivermanager 自动下载更新webdriver
 
 ### 元素点击逻辑
 ![流程图](./images/loading6.jpg)
+
+### iframe必须先切进去，测试完需要切出来
