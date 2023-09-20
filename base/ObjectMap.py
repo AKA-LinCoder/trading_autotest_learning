@@ -260,3 +260,15 @@ class ObjectMap:
             print("等待元素出现或消失失败" + e)
             return False
         return True
+
+    def upload(self, driver, locate_type, locator_expression, file_path):
+        """
+        文件上传
+        :param driver:
+        :param locate_type:
+        :param locator_expression:
+        :param file_path:
+        :return:
+        """
+        element = self.element_get(driver, locate_type, locator_expression)
+        return element.send_keys(file_path)

@@ -5,7 +5,7 @@ class LeftMenuBase:
         :param menu_name:一级菜单栏名称
         :return:
         """
-        return "//aside[@class='el-aside]//span[text()='" + menu_name + "']/ancestor::li"
+        return "//aside[@class='el-aside']//span[text()='" + menu_name + "']/ancestor::li"
 
     def level_two_meu(self, menu_name):
         """

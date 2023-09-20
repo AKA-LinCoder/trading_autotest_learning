@@ -48,9 +48,7 @@ from page.LoginPage import LoginPage
 class TestLogin:
     def test_login(self):
         driver = DriverConfig().driver_config()
-        LoginPage().login(driver,"jay")
-
-
+        LoginPage().login(driver, "jay")
 
         # # driver.get(url="http://www.okoknxx.cn")
         # driver.get(url="http://139.159.221.240")
