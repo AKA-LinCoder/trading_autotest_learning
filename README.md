@@ -106,10 +106,32 @@ webdrivermanager 自动下载更新webdriver
 ### 元素点击逻辑
 ![流程图](./images/loading6.jpg)
 
-### iframe必须先切进去，测试完需要切出来
+- iframe必须先切进去，测试完需要切出来
 
 - 如果定位toast
 F12 打开源代码，点击出现弹窗 在源代码处按F8 就可以让toast暂停
 
 - 解决点击下拉框后无法定位里面元素
  定位到下拉框，右键->发生中断的条件->子树修改
+
+### Pytest
+Pytest是一个使构建简单，可伸缩的使测试变得容易的框架
+
+#### Pytest规则
+- .py文件要test_开头或_test结尾
+- 测试类必须以Test开头，且不能有__init__方法
+- 测试用例函数以test_开头
+- 断言使用python原生assert
+
+- 运行文件中所有测试用例
+pytest testcases/test_pytests_m.py
+- 运行指定文件中的指定测试用例(或者给需要执行的测试用例打上标记)
+pytest testcases/test_pytests_m.py::TestPyTestMClass::test_open_baidu
+ pytest -m baidu
+- 同时运行两个测试用例
+pytest -m "baidu or bing"
+- 不执行某一个测试用例
+pytest testcases/test_pytests_m.py -m "not baidu"
+- 模糊匹配 (文件名/类名/方法名中包含指定内容)
+pytest -k pytest
+
