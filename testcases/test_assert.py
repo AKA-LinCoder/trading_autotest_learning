@@ -1,5 +1,14 @@
+import pytest
+from pytest_assume.plugin import assume
+
+
 class TestAssert:
     def test_assert(self):
+        # 第一种
+        with assume: assert "tom" in "hahahahah"
+        # 第二种 即使断言失败也会继续执行
+        pytest.assume(1 + 1 == 3)
+        # 第三种
         assert "william" == "william"
         assert "william" != "william-b"
         assert 0 < 1

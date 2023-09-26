@@ -156,3 +156,6 @@ pytest -k pytest
 - pytest -s testcases/test_rerun.py --reruns 5 --reruns-delay 1 指定重跑5次,间隔1秒 
 - @pytest.mark.flaky(reruns=5, reruns_delay=1) 代码中设置
 
+### pytest-assume
+断言，即使为假，后面也会执行 ，两种方式执行
+
