@@ -3,6 +3,8 @@ from selenium.common.exceptions import ElementNotInteractableException, WebDrive
     StaleElementReferenceException
 from common.yaml_config import GetConf
 from selenium.webdriver.common.keys import Keys
+from common.tools import get_project_path, sep
+from common.find_img import FindImg
 
 
 class ObjectMap:
@@ -300,3 +302,21 @@ class ObjectMap:
         :return:
         """
         driver.switch_to.parent_frame()
+
+    def find_img_in_source(self, driver, img_name):
+        """
+        截图，并在截图中查找图片
+        :param driver:
+        :param img_name:
+        :return:
+        """
+        # 截图后图片保存路径
+        source_img_path = get_project_path() + sep(["img", "diff_img", img_name], add_sep_before=True)
+        # 需要查找的图片路径
+        search_img_path = get_project_path() + sep(["img", "assert_img", img_name], add_sep_before=True)
+        # 截图并保存图片
+        driver.get_screenshot_as_file(source_img_path)
+        time.sleep(3)
+        # 在原图中查找是否有指定的图片，返回信心值
+        confidence = FindImg().get_confidence(source_path=source_img_path, search_path=search_img_path)
+        return confidence
