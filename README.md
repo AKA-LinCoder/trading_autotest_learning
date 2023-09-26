@@ -150,3 +150,9 @@ pytest -k pytest
 - pytest -n 3 指定并发数
 - pytest -n auto 根据电脑CPU核心数自动指定并发数
 - pytest -n auto --dist=loadscope 确保所有测试用例在一个进程中执行
+
+### pytest-rerunfailures
+-  pytest -s testcases/test_rerun.py --reruns 5 指定最多重跑5次
+- pytest -s testcases/test_rerun.py --reruns 5 --reruns-delay 1 指定重跑5次,间隔1秒 
+- @pytest.mark.flaky(reruns=5, reruns_delay=1) 代码中设置
+
