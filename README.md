@@ -144,3 +144,9 @@ pytest -k pytest
 - 就近原则
 - conftest不能呗其他文件导入
 - conftest可以设置多个pytest内置的钩子函数
+
+### pytest-xdist
+并发执行测试用例
+- pytest -n 3 指定并发数
+- pytest -n auto 根据电脑CPU核心数自动指定并发数
+- pytest -n auto --dist=loadscope 确保所有测试用例在一个进程中执行
