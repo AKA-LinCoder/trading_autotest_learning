@@ -5,4 +5,4 @@ class OrderBase:
         :param tab_name:
         :return:
         """
-        return "div[@role='tab' and text() = '" + tab_name + "']"
+        return "//div[@role='tab' and text() = '" + tab_name + "']"
