@@ -5,8 +5,8 @@ from page.LeftMeunPage import LeftMenuPage
 from page.OrderPage import OrderPage
 
 class TestOrderBuy:
-    def test_order_buy(self):
-        driver = DriverConfig().driver_config()
+    def test_order_buy(self,driver):
+        # driver = DriverConfig().driver_config()
         LoginPage().login(driver,'jay')
         LeftMenuPage().click_level_one_menu(driver,"我的订单")
         sleep(2)

@@ -137,3 +137,10 @@ pytest -k pytest
 ### Fixture
 包裹测试用例
 ![流程图](./images/fixture.jpg)
+### conftest
+![流程图](./images/conftest1.jpg)
+- conftest可以跨文件调用
+- conftest的文件名是固定的
+- 就近原则
+- conftest不能呗其他文件导入
+- conftest可以设置多个pytest内置的钩子函数

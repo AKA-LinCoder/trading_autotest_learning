@@ -7,8 +7,8 @@ from page.AccountPage import AccountPage
 
 
 class TestPersonalInfo:
-    def test_upload_avatar(self):
-        driver = DriverConfig().driver_config()
+    def test_upload_avatar(self,driver):
+        # driver = DriverConfig().driver_config()
         LoginPage().login(driver, 'jay')
         LeftMenuPage().click_level_one_menu(driver, "账户设置")
         sleep(2)

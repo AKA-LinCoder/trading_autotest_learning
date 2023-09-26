@@ -6,8 +6,8 @@ from time import sleep
 
 
 class TestIframeBaiduMap:
-    def test_iframe_baidu_map(self):
-        driver = DriverConfig().driver_config()
+    def test_iframe_baidu_map(self,driver):
+        # driver = DriverConfig().driver_config()
         LoginPage().login(driver, 'jay')
         LeftMenuPage().click_level_one_menu(driver, 'iframe测试')
         sleep(3)

@@ -8,14 +8,6 @@ from time import sleep
 
 
 class TestAddGoods:
-    @pytest.fixture()
-    def driver(self):
-        # 先实例化
-        get_driver = DriverConfig().driver_config()
-        # 通过yield返回到测试用例里
-        yield get_driver
-        # 测试用例执行完返回继续执行
-        get_driver.quit()
 
     def test_add_goods_001(self, driver):
         # driver = DriverConfig().driver_config()
