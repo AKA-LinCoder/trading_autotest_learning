@@ -164,3 +164,8 @@ pytest -k pytest
 - 执行完后会生成 assets文件夹，用于存放报告的样式，以及report.html显示测试结果
 -  pytest -s -q testcases/test_switch_window_handle.py --html=report.html --self-contained-html 不生成单独的样式文件夹
 
+### 图像识别在测试中的使用
+- 登陆时的图像验证码
+- App自动化测试 Airtest
+- Web端UI自动化测试勇敢图像识别做断言
+
