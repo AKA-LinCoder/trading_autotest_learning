@@ -136,4 +136,4 @@ pytest testcases/test_pytests_m.py -m "not baidu"
 pytest -k pytest
 ### Fixture
 包裹测试用例
-
+![流程图](./images/fixture.jpg)
