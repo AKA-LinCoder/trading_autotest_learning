@@ -174,4 +174,40 @@ pytest -k pytest
 - allure generate UIreport -o UIreport/report 生成本地文件
 - allure serve  UIreport 生成本地服务，可以在线浏览
 
+### Jenkins
+
+#### 持续集成的好处
+  - 降低风险
+  - 防止分支大幅偏离主干
+
+#### 自动化测试使用Jenkins
+  - 拉去Git仓库最新自动化测试代码
+  - 执行自动化测试
+  - 给出测试报告
+  -  定时执行自动化测试
+
+#### 本机安装Jenkins服务
+  - 安装Java
+  - 在Jenkins官网下载LTS版本的war包
+  - 进入Jenkins下载目录 执行 java -jar jenkins.war --httpPort=8080
+  - 复制生成的密码9dcefe002a7b4eea804a4397d2699a5b
+  - 打开浏览器 进入localhost：8080
+  - 输入上面复制的密码，选择安装推荐的插件
+  - 等待相关插件下载完毕，设置账户密码
+  - 点击保存，Jenkins的初始化就设置完毕了
+
+#### Jenkins-Allure配置
+- 在Jenkins中的插件管理中下载并安装allure
+- 在系统管理中选择全局工具管理配置jdk
+  - 设置别名，取消自动下载，选择java home 添加本地java路径 
+- 配置完jdk选择配置maven，设置别名，选择自动下载
+- 配置完后选择配置allure-commandline，设置别名，选择自动下载
+- 点击保存
+
+#### Jenkins构建自动化测试
+- 在Jenkins中新建任务，选择自由风格
+- 配置GitURL，在凭证中添加GitHub的账户密码
+- 在构建环境中勾选Delete workspace before build starts
+- 配置构建 Windows选择Windows，Mac或者Linux选择shell
+
 
