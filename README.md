@@ -169,3 +169,9 @@ pytest -k pytest
 - App自动化测试 Airtest
 - Web端UI自动化测试勇敢图像识别做断言
 
+### Allure
+-  pytest testcases/test_switch_window_handle.py --alluredir=UIreport
+- allure generate UIreport -o UIreport/report 生成本地文件
+- allure serve  UIreport 生成本地服务，可以在线浏览
+
+
