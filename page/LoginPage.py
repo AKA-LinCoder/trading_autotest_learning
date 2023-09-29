@@ -2,6 +2,7 @@ from base.LoginBase import LoginBase
 from selenium.webdriver.common.by import By
 from base.ObjectMap import ObjectMap
 from common.yaml_config import GetConf
+from logs.log import log
 
 
 class LoginPage(LoginBase, ObjectMap):
@@ -21,6 +22,7 @@ class LoginPage(LoginBase, ObjectMap):
         self.login_input_value(driver, "用户名", username)
         self.login_input_value(driver, "密码", password)
         self.click_login(driver, "登录")
+        self.assert_login_success(driver )
 
     def login_assert(self, driver, img_name):
         """
@@ -29,5 +31,24 @@ class LoginPage(LoginBase, ObjectMap):
         :param img_name:
         :return:
         """
-        # log.info("登录后判断头像")
+        log.info("登录后判断头像")
         return self.find_img_in_source(driver, img_name)
+
+    def assert_login_success(self, driver):
+        """
+        验证是否登录成功
+        :param driver:
+        :return:
+        """
+        success_xpath = self.login_success()
+        self.element_appear(driver, By.XPATH, success_xpath, timeout=2)
+
+    def select_need_captcha(self, driver):
+        """
+        点击勾选是否需要验证码
+        :param driver:
+        :return:
+        """
+        log.info("点击勾选是否需要验证码")
+        select_xpath = self.need_captcha()
+        return self.element_click(driver, By.XPATH, select_xpath)

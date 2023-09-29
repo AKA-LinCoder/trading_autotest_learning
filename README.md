@@ -209,5 +209,8 @@ pytest -k pytest
 - 配置GitURL，在凭证中添加GitHub的账户密码
 - 在构建环境中勾选Delete workspace before build starts
 - 配置构建 Windows选择Windows，Mac或者Linux选择shell
-
+- python -m pytest testcases\test_jenkins.py -n auto --alluredir=\Users\estim\.jenkins\workspace\二手交易平台自动化测试\allure-results
+- 在选择构建后操作中选择Allure-Report
+- 在构建触发器中设置定时任务 25 6 * * * 每天6。25执行
+- 点击保存
 
