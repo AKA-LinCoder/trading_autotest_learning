@@ -1,8 +1,12 @@
+import time
+
 from base.LoginBase import LoginBase
 from selenium.webdriver.common.by import By
 from base.ObjectMap import ObjectMap
 from common.yaml_config import GetConf
 from logs.log import log
+from common.report_add_img import add_img_path_to_report
+from common.ocr_identify import OcrIndentify
 
 
 class LoginPage(LoginBase, ObjectMap):
@@ -16,13 +20,24 @@ class LoginPage(LoginBase, ObjectMap):
         return self.element_click(driver, By.XPATH, button_xpath)
         # return driver.find_element_by_xpath(input_xpath).click()
 
-    def login(self, driver, user):
+    def login(self, driver, user, need_captcha=False):
         self.element_to_url(driver, "/login")
+        if need_captcha:
+            time.sleep(3)
+            log.info("need captche")
+            self.select_need_captcha(driver)
+            captcha_xpath = self.captcha()
+            element_img_path = self.element_screenshot(driver,By.XPATH,captcha_xpath)
+            add_img_path_to_report(element_img_path,"图像验证码")
+            identify = OcrIndentify().identify(element_img_path)
+            log.info("code is"+str(identify))
+            input_captcha_xpath = self.input_captcha()
+            self.element_fill_value(driver,By.XPATH,input_captcha_xpath,identify)
         username, password = GetConf().get_username_password(user)
         self.login_input_value(driver, "用户名", username)
         self.login_input_value(driver, "密码", password)
         self.click_login(driver, "登录")
-        self.assert_login_success(driver )
+        self.assert_login_success(driver)
 
     def login_assert(self, driver, img_name):
         """

@@ -1,3 +1,5 @@
+import datetime
+import os
 import time
 from selenium.common.exceptions import ElementNotInteractableException, WebDriverException, NoSuchElementException, \
     StaleElementReferenceException
@@ -320,3 +322,32 @@ class ObjectMap:
         # 在原图中查找是否有指定的图片，返回信心值
         confidence = FindImg().get_confidence(source_path=source_img_path, search_path=search_img_path)
         return confidence
+
+
+    def element_screenshot(self, driver, locate_type, locator_expression):
+        """
+        元素截图
+        :param driver:
+        :param locate_type:
+        :param locator_expression:
+        :return:
+        """
+        ele_name = datetime.datetime.now().strftime("%Y%m%d%H%M%S") + ".png"
+        ele_img_dir_path = get_project_path() + sep(["img", "ele_img"], add_sep_before=True, add_sep_after=True)
+        if not os.path.exists(ele_img_dir_path):
+            os.mkdir(ele_img_dir_path)
+        ele_img_path = ele_img_dir_path + ele_name
+        self.element_get(driver, locate_type, locator_expression).screenshot(ele_img_path)
+        return ele_img_path
+
+    def scroll_to_element(self, driver, locate_type, locator_expression):
+        """
+        滚动到元素
+        :param driver:
+        :param locate_type:
+        :param locator_expression:
+        :return:
+        """
+        ele = self.element_get(driver, locate_type, locator_expression)
+        driver.execute_script("arguments[0].scrollIntoView()", ele)
+        return True

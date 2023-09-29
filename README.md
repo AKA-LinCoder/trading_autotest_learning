@@ -214,3 +214,5 @@ pytest -k pytest
 - 在构建触发器中设置定时任务 25 6 * * * 每天6。25执行
 - 点击保存
 
+### ddddocr
+- https://github.com/sml2h3/ddddocr/issues/139 
