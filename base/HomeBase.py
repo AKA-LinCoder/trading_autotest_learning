@@ -16,7 +16,6 @@ class HomeBase:
     def welcome(self):
         return "//span[starts-with(text(),'欢迎您回来')]"
 
-
     def show_date(self):
         """
         following-sibling:寻找同级元素 下一个div
@@ -30,4 +29,11 @@ class HomeBase:
         :return:
         """
         return "//span[text(),'我的地址']/ancestor::div[@class='first_card']/div[contains(@class,'avatar)]//img "
-        return  "//span[contains(text(),'欢迎您回来')]/parent::div/preceding-sibling::div//img"
+        return "//span[contains(text(),'欢迎您回来')]/parent::div/preceding-sibling::div//img"
+
+    def user_balance(self):
+        """
+        首页账户余额
+        :return:
+        """
+        return "//th[text()='账户余额']/parent::tr/following-sibling::tr/td[1]"

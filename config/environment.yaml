@@ -1,4 +1,4 @@
-user:
+ser:
   jay:
     username: 周杰伦
     password: 123456
@@ -10,3 +10,10 @@ user:
     password: william
 
 url: http://139.159.221.240
+
+mysql:
+  db: trading_system
+  host: 139.159.221.240
+  password: william
+  port: 3306
+  user: root

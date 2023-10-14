@@ -216,3 +216,6 @@ pytest -k pytest
 
 ### ddddocr
 - https://github.com/sml2h3/ddddocr/issues/139 
+
+### pymysql
+开始-创建connection-获取cursor-执行DML语句-关闭cursor-关闭connection-结束
