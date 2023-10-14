@@ -1,5 +1,7 @@
 import time
 
+import requests
+
 from base.LoginBase import LoginBase
 from selenium.webdriver.common.by import By
 from base.ObjectMap import ObjectMap
@@ -27,17 +29,43 @@ class LoginPage(LoginBase, ObjectMap):
             log.info("need captche")
             self.select_need_captcha(driver)
             captcha_xpath = self.captcha()
-            element_img_path = self.element_screenshot(driver,By.XPATH,captcha_xpath)
-            add_img_path_to_report(element_img_path,"图像验证码")
+            element_img_path = self.element_screenshot(driver, By.XPATH, captcha_xpath)
+            add_img_path_to_report(element_img_path, "图像验证码")
             identify = OcrIndentify().identify(element_img_path)
-            log.info("code is"+str(identify))
+            log.info("code is" + str(identify))
             input_captcha_xpath = self.input_captcha()
-            self.element_fill_value(driver,By.XPATH,input_captcha_xpath,identify)
+            self.element_fill_value(driver, By.XPATH, input_captcha_xpath, identify)
         username, password = GetConf().get_username_password(user)
         self.login_input_value(driver, "用户名", username)
         self.login_input_value(driver, "密码", password)
         self.click_login(driver, "登录")
         self.assert_login_success(driver)
+
+    def api_login(self, driver, user):
+        """
+        通过api登录
+        :param driver:
+        :param user:
+        :return:
+        """
+        log.info("跳转登录页")
+        self.element_to_url(driver, "/login")
+        username, password = GetConf().get_username_password(user)
+        log.info("用户名" + username)
+        url = GetConf().get_url()
+        data = {
+            "user": username,
+            "password": password
+        }
+        log.info("通过api登录")
+        res = requests.post(url + "/api/user/login", json=data)
+        token = res.json()["data"]["token"]
+        js_script = "window.sessionStorage.setItem('token','%s');" % token
+        log.info("将token写入session")
+        driver.execute_script(js_script)
+        time.sleep(2)
+        log.info("跳转主页")
+        self.element_to_url(driver,"/")
 
     def login_assert(self, driver, img_name):
         """

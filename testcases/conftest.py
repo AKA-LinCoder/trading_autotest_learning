@@ -47,7 +47,7 @@ def pytest_runtest_makereport(item, call):
             pass
         # process = Process().get_process()
 
-        webhook = GetConf().get_dingding_webhook()
+       # webhook = GetConf().get_dingding_webhook()
         # send_dingtalk_msg(
         #    webhook,
          #   "测试用例:"

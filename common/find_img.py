@@ -25,7 +25,4 @@ class FindImg:
         return result["confidence"]
 
 
-if __name__ == '__main__':
-    source = get_project_path() + sep(["img", "diff_img/20220710002104-对比的图.png"], add_sep_before=True)
-    search = get_project_path() + sep(["img", "assert_img/head_img.png"], add_sep_before=True)
-    FindImg().get_confidence(source, search)
+

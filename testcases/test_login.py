@@ -61,6 +61,6 @@ class TestLogin:
     def test_login(self, driver):
         """使用错误的账号登录"""
         with allure.step("登录"):
-            LoginPage().login(driver, "failure")
+            LoginPage().login(driver, "jay")
             sleep(3)
             add_img_to_report(driver, "登录")
