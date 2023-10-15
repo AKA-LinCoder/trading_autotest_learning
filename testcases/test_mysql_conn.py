@@ -6,10 +6,11 @@ from page.HomePage import HomePage
 from page.LoginPage import LoginPage
 from logs.log import log
 
+
 class TestMySqlConn:
-    def test_mysql(self,driver):
+    def test_mysql(self, driver):
         with allure.step("登录"):
-            LoginPage().login(driver,"jay")
+            LoginPage().login(driver, "jay")
             sleep(3)
 
         with allure.step("获取账号余额"):
@@ -21,5 +22,3 @@ class TestMySqlConn:
             log.info(db_balance)
         with allure.step("断言数据库中的数据是否一致"):
             assert str(balance) == str(db_balance)
-
-
