@@ -17,3 +17,8 @@ mysql:
   password: william
   port: 3306
   user: root
+
+redis:
+  host: 139.159.221.240
+  port: 6379
+  db: 0

@@ -2,18 +2,18 @@ import pytest
 
 from config.driver_config import DriverConfig
 from common.report_add_img import add_img_to_report
-# from common.process_redis import Process
+from common.process_redis import Process
 from common.yaml_config import GetConf
 # from common.ding_talk import send_dingtalk_msg
 
-
+# pytest内置的方法
 def pytest_collection_finish(session):
     # 所有用例的个数
     total = len(session.items)
     # 重置用例进度和失败用例名称
-    # Process().reset_all()
+    Process().reset_all()
     # 初始化进度
-    # Process().init_process(total)
+    Process().init_process(total)
 
 
 @pytest.fixture()
@@ -37,15 +37,16 @@ def pytest_runtest_makereport(item, call):
             # 失败了就截图
             add_img_to_report(get_driver, "失败截图", need_sleep=False)
             # 更新失败用例个数
-            # Process().update_fail()
+            Process().update_fail()
             # 增加失败用例名称
-            # Process().insert_into_fail_testcase_names(report.description)
-        # elif report.passed:
+            Process().insert_into_fail_testcase_name(report.description)
+        elif report.passed:
             # 更新成功用例个数
-            # Process().update_success()
+            Process().update_success()
         else:
             pass
-        # process = Process().get_process()
+        process = Process().get_process()
+        print(process)
 
        # webhook = GetConf().get_dingding_webhook()
         # send_dingtalk_msg(

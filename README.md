@@ -219,3 +219,18 @@ pytest -k pytest
 
 ### pymysql
 开始-创建connection-获取cursor-执行DML语句-关闭cursor-关闭connection-结束
+
+### NoSql
+- 没有声明性查询语音
+- 使用键值对存储
+- 非结构化和不可预知的数据
+- 高性能，高可用 ，可伸缩
+
+#### 使用场景
+- 热点数据的缓存
+- 限时业务的运用
+- 计数器相关问题
+- 分布式锁
+- 点赞好友等相关关系的存储
+- 队列
+![redis](./images/redis.jpg)

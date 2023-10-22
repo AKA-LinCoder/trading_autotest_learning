@@ -33,6 +33,9 @@ class GetConf:
     def get_mysql_config(self):
         return self.env["mysql"]
 
+    def get_redis(self):
+        return self.env["redis"]
+
 
 if __name__ == '__main__':
     print(GetConf().get_username_password("jay"))

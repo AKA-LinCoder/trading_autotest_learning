@@ -59,6 +59,8 @@ class LoginPage(LoginBase, ObjectMap):
         }
         log.info("通过api登录")
         res = requests.post(url + "/api/user/login", json=data)
+        log.info("这是结果")
+        log.info(res)
         token = res.json()["data"]["token"]
         js_script = "window.sessionStorage.setItem('token','%s');" % token
         log.info("将token写入session")
