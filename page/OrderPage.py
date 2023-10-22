@@ -32,3 +32,54 @@ class OrderPage(ObjectMap,OrderBase):
         """
         button_xpath = self.order_operation_confirm()
         return self.element_click(driver,By.XPATH,button_xpath)
+
+    def click_delivery_logistics(self,dirver):
+        """
+        点击物流
+        :param dirver:
+        :return:
+        """
+        input_xpath = self.delivery_logistics()
+        return self.element_click(dirver,By.XPATH,input_xpath)
+
+    def click_select_logistics(self,driver,company):
+        """
+        选择物流公司
+        :param driver:
+        :param company:
+        :return:
+        """
+        select_xpath = self.select_logistics(company)
+        return self.element_click(driver,By.XPATH,select_xpath)
+
+    def input_logistics_order_no(self,driver,order_no):
+        """
+        填入物流单号
+        :param driver:
+        :param order_no:
+        :return:
+        """
+        input_xpath = self.logistics_order_no()
+        return self.element_fill_value(driver,By.XPATH,input_xpath,order_no)
+
+    def click_evaluation(self,driver,num):
+        """
+        评价星级
+        :param driver:
+        :param num:
+        :return:
+        """
+        star_xpath = self.evaluation(num)
+        return  self.element_click(driver,By.XPATH,star_xpath)
+
+    def click_evaluation_confirm(self,driver):
+        """
+        评价后点击确定
+        :param driver:
+        :return:
+        """
+        button_xpath = self.evaluation_confirm()
+        return self.element_click(driver,By.XPATH,button_xpath)
+
+
+
