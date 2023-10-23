@@ -36,6 +36,15 @@ class GetConf:
     def get_redis(self):
         return self.env["redis"]
 
+    def get_dingding_webhook(self):
+        return self.env["dingding_group"]["webhook"]
+
+    def get_jenkins(self):
+        return self.env["jenkins"]["url"]
+
+    def get_qywx_webhook(self):
+        return self.env["qywx_group"]["webhook"]
+
 
 if __name__ == '__main__':
     print(GetConf().get_username_password("jay"))

@@ -22,3 +22,13 @@ redis:
   host: 139.159.221.240
   port: 6379
   db: 0
+
+dingding_group:
+  webhook: 这里需要钉钉机器人的webhook
+
+jenkins:
+  url: http://139.159.221.240:8080
+
+qywx_group:
+  webhook: 这里需要企业微信机器人的webhook
+
