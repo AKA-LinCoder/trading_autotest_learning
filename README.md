@@ -234,3 +234,7 @@ pytest -k pytest
 - 点赞好友等相关关系的存储
 - 队列
 ![redis](./images/redis.jpg)
+
+# 在运行完用例后执行
+|| exit 0
+python3 testcase_result.py
