@@ -87,7 +87,7 @@ class Process:
         获取所有失败的用例名称
         :return:
         """
-        fail_testcase_name = self.redis_client.lrang(self.FAILED_TESTCASE_NAMES, 0, -1)
+        fail_testcase_name = self.redis_client.lrange(self.FAILED_TESTCASE_NAMES, 0, -1)
         return fail_testcase_name
 
     def write_end_time(self):
