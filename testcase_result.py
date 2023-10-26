@@ -50,6 +50,6 @@ send_dingtalk_msg_markdown(dingding_webhook,
                            report_title
                            )
 
-# 发送到企业微信
-qywx_webhook = GetConf().get_qywx_webhook()
-send_qywx_msg_markdown(qywx_webhook, allure_url, report_title, total, success, fail, failed_testcases_name)
+# # 发送到企业微信
+# qywx_webhook = GetConf().get_qywx_webhook()
+# send_qywx_msg_markdown(qywx_webhook, allure_url, report_title, total, success, fail, failed_testcases_name)

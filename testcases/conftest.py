@@ -50,7 +50,7 @@ def pytest_runtest_makereport(item, call):
         webhook = GetConf().get_dingding_webhook()
         send_dingtalk_msg(
             webhook,
-           "测试用例:"
+           "我是007, 测试用例:"
            + report.description
            + "\n测试结果: "
            + report.outcome

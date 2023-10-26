@@ -9,7 +9,9 @@ user:
     username: william
     password: william
 
-url: http://139.159.221.240
+#url: http://139.159.221.240
+
+url: http://192.168.0.124:8080
 
 mysql:
   db: trading_system
@@ -24,10 +26,11 @@ redis:
   db: 0
 
 dingding_group:
-  webhook: 这里需要钉钉机器人的webhook
+  webhook: https://oapi.dingtalk.com/robot/send?access_token=c65712852ced3d21d2e15e1d9f7d99c874739577beace68f3bba359d568a89d9
 
 jenkins:
-  url: http://139.159.221.240:8080
+  url: http://192.168.0.135:8080
+#  url: http://139.159.221.240:8080
 
 qywx_group:
   webhook: 这里需要企业微信机器人的webhook

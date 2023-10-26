@@ -38,5 +38,7 @@ class LoginBase:
         """
         return "//input[@placeholder='请输入验证码']"
 
+
+
 if __name__ == '__main__':
     print(LoginBase().login_input("用户名"))

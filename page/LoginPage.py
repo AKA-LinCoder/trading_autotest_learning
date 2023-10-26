@@ -41,6 +41,19 @@ class LoginPage(LoginBase, ObjectMap):
         self.click_login(driver, "登录")
         self.assert_login_success(driver)
 
+    def estim_login(self, driver):
+        """
+        钻井账号密码登录测试
+        :param driver:
+        :param user:
+        :return:
+        """
+        self.element_to_url(driver, "/login")
+        self.login_input_value(driver, "请输入账号", "admin")
+        self.login_input_value(driver, "请输入密码", "123456")
+        self.click_login(driver, "登录")
+        self.assert_login_success(driver)
+
     def api_login(self, driver, user):
         """
         通过api登录
@@ -67,7 +80,7 @@ class LoginPage(LoginBase, ObjectMap):
         driver.execute_script(js_script)
         time.sleep(2)
         log.info("跳转主页")
-        self.element_to_url(driver,"/")
+        self.element_to_url(driver, "/")
 
     def login_assert(self, driver, img_name):
         """

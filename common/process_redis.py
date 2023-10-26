@@ -1,4 +1,5 @@
 from common.tools import get_now_time
+from common.tools import get_now_date_time_str
 from common.redis_operation import RedisOperation
 
 
@@ -24,9 +25,9 @@ class Process:
         self.redis_client.hset(self.UI_AUTO_PROCESS, "total", total)
         self.redis_client.hset(self.UI_AUTO_PROCESS, "success", 0)
         self.redis_client.hset(self.UI_AUTO_PROCESS, "fail", 0)
-        self.redis_client.hset(self.UI_AUTO_PROCESS, "start_time", get_now_time())
+        self.redis_client.hset(self.UI_AUTO_PROCESS, "start_time", get_now_date_time_str())
         self.redis_client.hset(self.UI_AUTO_PROCESS, "end_time", "")
-        self.redis_client.hset(self.RUNNING_STATUS, 1)
+        self.redis_client.set(self.RUNNING_STATUS, 1)
 
     def update_success(self):
         """
@@ -55,17 +56,17 @@ class Process:
         获取测试结果
         :return:
         """
-        total = self.redis_client.hset(self.UI_AUTO_PROCESS, "total")
+        total = self.redis_client.hget(self.UI_AUTO_PROCESS, "total")
         if total is None:
             total = 0
-        success = self.redis_client.hset(self.UI_AUTO_PROCESS, "success")
+        success = self.redis_client.hget(self.UI_AUTO_PROCESS, "success")
         if success is None:
             success = 0
-        fail = self.redis_client.hset(self.UI_AUTO_PROCESS, "fail")
+        fail = self.redis_client.hget(self.UI_AUTO_PROCESS, "fail")
         if fail is None:
             fail = 0
 
-        start_time = self.redis_client.hset(self.UI_AUTO_PROCESS, "start_time")
+        start_time = self.redis_client.hget(self.UI_AUTO_PROCESS, "start_time")
         if start_time is None:
             start_time = "-"
         return total, success, fail, start_time
@@ -94,7 +95,7 @@ class Process:
         把测试结束时间写入reids
         :return:
         """
-        self.redis_client.hset(self.UI_AUTO_PROCESS, "end_time", get_now_time())
+        self.redis_client.hset(self.UI_AUTO_PROCESS, "end_time", get_now_date_time_str())
 
     def modify_running_status(self, status):
         """
