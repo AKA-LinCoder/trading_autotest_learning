@@ -30,7 +30,8 @@ Process().write_end_time()
 Process().modify_running_status(0)
 
 # 项目名称
-project_name = "my_auto_test"
+# project_name = "my_auto_test"
+project_name = "二手交易平台自动化测试"
 
 # 报告标题
 report_title = "自动化测试报告"
